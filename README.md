@@ -5,3 +5,4 @@
 - [Project 2]()
 - [Project 3]()
  
+theme: pages-themes/slate@v0.2.0
