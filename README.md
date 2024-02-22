@@ -1,6 +1,15 @@
 
+<div style="display: flex; align-items: center;">
+   <img src="https://TatianaKarpovaP.github.io/Portfolio_Data_Analyst/Photo.png" alt="Alt text" style="border-radius: 50%; width: 100px; height: 100px;height: 100px; margin-right: 20px;">
+    <p>Within this repository, you will find a collection of projects spanning various domains, including but not limited to finance, healthcare, marketing, and social sciences. Each project is meticulously crafted to highlight my proficiency in data wrangling, exploratory data analysis, statistical analysis, data visualization, and interpretation of results.</p>
+</div>
+
+
 - [I am glad to know each other better - My SV](https://TatianaKarpovaP.github.io/Portfolio_Data_Analyst/CV_Tatiana_Karpova_Data_and_Business_Analyst.pdf)
 - [Project 1](https://TatianaKarpovaP.github.io/Portfolio_Data_Analyst/Project_1.pdf)
 - [Project 2]()
 - [Project 3]()
 
+
+
+https://TatianaKarpovaP.github.io/Portfolio_Data_Analyst/Photo.png
