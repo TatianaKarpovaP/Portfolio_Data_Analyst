@@ -1,3 +1,8 @@
+<div style="position: fixed; bottom: 20px; right: 20px; z-index: 999;">
+  <a href="[Main page](https://tatianakarpovap.github.io/Portfolio_Data_Analyst/)" target="_blank" style="padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: Go back; border-radius: 5px;">Main page</a>
+</div>
+
+
 # Project 'Credit risk score'
 ###### *This project is an intellectual property. When quoting, please indicate the original source*
 
@@ -193,36 +198,15 @@ max            41188.000     56.000      5.000                       29.000     
 ```
 The boolean value of Y can be ignored, since statistics do not provide any useful information. This value is analysed later.
 
-I assume that function ‘describe()’ provides not enough details, and I decided to create its own table with more coefficients. 
-```python
-def statistic(dataset): #design a table with different coefficiets
-    result_table = pd.DataFrame(index=['Mean', 'Harmonic Mean', 'Range', 'Median',
-                                       'Mode','Standard Deviation', 'Variance',
-                                       'Skewness', 'Kurtosis', 'Entropy'])
-    numeric_columns = dataset.iloc[:, 1:-1] #choosing only numerical values (dafault and ids are not included)
-    for column in numeric_columns:
-        result_table[column] = [np.mean(numeric_columns[column]),
-                                st.harmonic_mean(numeric_columns[column].tolist()),
-                                np.ptp(numeric_columns[column]),
-                                np.median(numeric_columns[column]),
-                                st.mode(numeric_columns[column].tolist()),
-                                np.std(numeric_columns[column]),
-                                np.var(numeric_columns[column]),
-                                skew(numeric_columns[column]),
-                                kurtosis(numeric_columns[column]),
-                                entropy(numeric_columns[column].dropna())]
-    result_table_rounded = result_table.round(3)
-    print('\n',result_table_rounded.to_string())
-```
+I assume that function ‘describe()’ provides not enough details, and I decided to create its own table with more coefficients: Harmonic Mean, Range, Median, Mode, Variance, Skewness, Kurtosis, and Entropy.
+
 Output
 ```
                          age  education  years_with_current_employer  years_at_current_address  household_income  debt_to_income_ratio  credit_card_debt  other_debt
-Mean                 38.008      2.993                       13.550                    15.385           139.707                16.224             9.577      13.758
 Harmonic Mean        34.830      2.178                        0.000                     0.000            82.480                 7.525             1.172       3.149
 Range                36.000      4.000                       29.000                    31.000           432.000                40.894           149.010     159.176
 Median               38.000      3.000                       14.000                    15.000           134.000                16.105             5.311       9.154
 Mode                 43.000      1.000                        2.000                    28.000           201.000                12.117            14.377       8.887
-Standard Deviation   10.623      1.419                        8.145                     9.184            81.687                 9.191            12.408      14.596
 Variance            112.859      2.013                       66.341                    84.352          6672.773                84.480           153.970     213.053
 Skewness              0.002      0.003                        0.015                     0.004             0.759                 0.148             3.279       2.558
 Kurtosis             -1.206     -1.307                       -1.192                    -1.199             0.910                -0.875            16.972      10.950
