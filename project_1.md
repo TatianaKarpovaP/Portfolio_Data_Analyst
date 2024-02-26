@@ -1,5 +1,5 @@
 <div style="position: fixed; bottom: 20px; right: 20px; z-index: 999;">
-  <a href="[Main page](https://tatianakarpovap.github.io/Portfolio_Data_Analyst/README.md)" target="_blank" style="padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: Go back; border-radius: 5px;">Main page</a>
+  <a href="[Main page](README.md)" target="_blank" style="padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: Go back; border-radius: 5px;">Main page</a>
 </div>
 
 
