@@ -231,7 +231,7 @@ Kurtosis             -1.206     -1.307                       -1.192             
 ## <a id="title6">Visualization by classes</a> 
 To learn more about the behavior patterns within reliable and unreliable customers, the metrics of these two groups is considered. Moreover, number of observations in a group of reliable clients (Y=0) is almost 8 times more than in an unreliable one (Y=1).
 ```
-Value "default" counts y
+Value 'y' (default)
 0    36548
 1     4640
 Name: count, dtype: int64
