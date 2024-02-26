@@ -1,6 +1,7 @@
 <div style="position: fixed; bottom: 20px; right: 20px; z-index: 999;">
-  <a href="https://tatianakarpovap.github.io/Portfolio_Data_Analyst/" target="_blank" style="padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: Go back; border-radius: 5px;">Main page</a>
+  <a href="https://tatianakarpovap.github.io/Portfolio_Data_Analyst/" target="_self" style="padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px;">Main page</a>
 </div>
+
 
 <style>
   body {
@@ -19,11 +20,17 @@ During my first academic term, I have completed a final assignement and for the 
     - [Problem formulation](#title2)
     - [Dataset description](#title3)
     - [Dataset transforming](#title4)
-2. [Problem and dataset](#title5) 
+    - [Dataset statistics](#title5)
+2. [Common and by classes visualization](#title6)
+3. 
+
   
-##  <a id="title1">Problem and dataset</a>
-### <a id="title2">Problem formulation</a>
-   Financial institutes like banking are always essential in both global and local economic development. For the past 40 years share of households’ loans and debts in GDP in most countries are constantly growing according to International Monetary Fund statistic (2022). Credit is shown to be likely reliable instrument for people.
+## <a id="title1">Problem and dataset</a>
+
+<details>
+<summary><a href="#title2">Problem formulation</a></summary>
+  
+  Financial institutes like banking are always essential in both global and local economic development. For the past 40 years share of households’ loans and debts in GDP in most countries are constantly growing according to International Monetary Fund statistic (2022). Credit is shown to be likely reliable instrument for people.
    
    Many banks now offer a wide variety of credit services. Loans can be issued for various purposes, and interest on loans is the main source of income for banks. Therefore, in order not to lose profits, the flow of credit payments must be constant (Miguéis V.L., Benoit D.F. and Van den Poel D. 2013). But how can banks ensure this? The answer is a client's credit risk assessment. Thus, for example, the researchers studied Machine Learning classifiers techniques based on probability of default value. As a result, they got promising methods, providing accurate credit risk scores (Florez-Lopez R. and Ramon-Jeronimo J.M. 2014, Hooman A. et al 2016).
    
@@ -34,9 +41,12 @@ During my first academic term, I have completed a final assignement and for the 
    In addition, banks have limited information and at the same time must be confident in its reliability. Even if the client has a stable job and has bought a house, this is not enough. There are many factors that need to be taken into account. At the same time, all banks collect different information about their potential customers. Therefore, each such financial institution needs to develop its own methods to assess credit risks.
    
    From all this it follows that banks face an important problem: how to assess the credit risk for each new customer with information about their past default experience? My work provides one of possibles answer to this question.
+</details>
 
-### <a id="title3">Dataset description</a> 
-This research is based on a dataset extracted from a [Roi Polanitzer's github repository](https://github.com/frm-garp/Logistic-Regression-in-Python--Predict-the-Probability-of-Default-of-an-Individual/blob/main/bank.csv). It contains 700 samples with 9 features. These features are:
+<details>
+<summary><a href="#title3">Dataset description</a> </summary>
+  
+  This research is based on a dataset extracted from a [Roi Polanitzer's github repository](https://github.com/frm-garp/Logistic-Regression-in-Python--Predict-the-Probability-of-Default-of-an-Individual/blob/main/bank.csv). It contains 700 samples with 9 features. These features are:
 1. age – customer age, years;
 2. education – customer education level;
 3. years_with_current_employer – time with current employer, years;
@@ -50,9 +60,12 @@ This research is based on a dataset extracted from a [Roi Polanitzer's github re
 The analysis is based on the hypothesis that unpaid debts in the past leads to unpaid debts in the future. That is why the ‘default’ variable is dependent in the models in this project. Moreover, it presents two classes of customers: reliable if ‘default’=1 and unreliable if ‘default’=0.
 
 All further calculations are made in Python. The data is partly presented below. 
+</details>
 
-### <a id="title4">Dataset transforming</a> 
-A few steps are made in order to detect errors and inaccuracies and as a result having clean data for further analysis.
+<details>
+<summary> <a href="#title4">Dataset transforming</a> </summary>
+
+  A few steps are made in order to detect errors and inaccuracies and as a result having clean data for further analysis.
 - to detect Nan values;
 - to detect abnormal values;
 - to check all values are with expected type.
@@ -171,6 +184,7 @@ dtypes: float64(3), int64(6), object(1)
 memory usage: 3.1+ MB
 ```
 It is seen that the database contains 41,188 records. This is a significant amount from which to draw representative conclusions. All the data is in the expected format. At the same time, I have a desire to standardize the "education" feature. It is made as:
+
 ```python
 def educational_coding(dataset):
     education_mapping = {
@@ -184,40 +198,50 @@ def educational_coding(dataset):
     dataset['education'] = dataset['education'].replace(education_mapping)
     return(dataset)
 ```
+</details>
 
-Now, let us take a look at some descriptive statistics:
+<details>
+<summary> <a href="#title5">Dataset statistics</a> </summary>
+
+Now, let us take a look at some descriptive statistics to form the big picture of the database:
+
 ```python
     print(dataset.describe().to_string())
 ```
 Output
 ```
 Dataset description
-        loan_applicant_id        age  education  years_with_current_employer  years_at_current_address  household_income  debt_to_income_ratio  credit_card_debt  other_debt          y
-count          41188.000  41188.000  41188.000                    41188.000                 41188.000         41188.000             41188.000         41188.000   41188.000  41188.000
-mean           20594.500     38.008      2.993                       13.550                    15.385           139.707                16.224             9.577      13.758      0.113
-std            11890.096     10.624      1.419                        8.145                     9.184            81.688                 9.191            12.409      14.597      0.316
-min                1.000     20.000      1.000                        0.000                     0.000            14.000                 0.400             0.006       0.022      0.000
-25%            10297.750     29.000      2.000                        6.000                     7.000            74.000                 8.452             1.853       3.784      0.000
-50%            20594.500     38.000      3.000                       14.000                    15.000           134.000                16.105             5.311       9.154      0.000
-75%            30891.250     47.000      4.000                       21.000                    23.000           196.000                23.731            12.637      18.907      0.000
-max            41188.000     56.000      5.000                       29.000                    31.000           446.000                41.294           149.016     159.198      1.000
+              age  education  years_with_current_employer  years_at_current_address  household_income  debt_to_income_ratio  credit_card_debt  other_debt
+count  41188.000  41188.000                    41188.000                 41188.000         41188.000             41188.000         41188.000   41188.000
+mean      38.008      2.993                       13.550                    15.385           139.707                16.224             9.577      13.758
+std       10.624      1.419                        8.145                     9.184            81.688                 9.191            12.409      14.597
+min       20.000      1.000                        0.000                     0.000            14.000                 0.400             0.006       0.022
+25%       29.000      2.000                        6.000                     7.000            74.000                 8.452             1.853       3.784
+50%       38.000      3.000                       14.000                    15.000           134.000                16.105             5.311       9.154
+75%       47.000      4.000                       21.000                    23.000           196.000                23.731            12.637      18.907
+max       56.000      5.000                       29.000                    31.000           446.000                41.294           149.016     159.198
 ```
 The boolean value of Y can be ignored, since statistics do not provide any useful information. This value is analysed later.
+I drawn a portrait of an average bank customer. He/she is 38 years old and most likely illiterate, also he/she has not changed jobs in 13 years and has been living in the same place for more than 15 years. The average salary  is $139,700 per year, but about 16% of that amount is in debt, including about $9,600 in credit card debt and $13,800 in other debt.
 
-I assume that function ‘describe()’ provides not enough details, and I decided to create its own table with more coefficients: Harmonic Mean, Range, Median, Mode, Variance, Skewness, Kurtosis, and Entropy.
+The median (50%) also indicates that the variables are mostly evenly distributed, while for credit_card_debt and other_debt the average is shifted to the second half of the dataset.
+
+I assume that function ‘describe()’ provides not enough details, and I decided to create its own table with more coefficients: Harmonic Mean, Range, Mode, Skewness, Kurtosis.
 
 Output
 ```
                          age  education  years_with_current_employer  years_at_current_address  household_income  debt_to_income_ratio  credit_card_debt  other_debt
 Harmonic Mean        34.830      2.178                        0.000                     0.000            82.480                 7.525             1.172       3.149
 Range                36.000      4.000                       29.000                    31.000           432.000                40.894           149.010     159.176
-Median               38.000      3.000                       14.000                    15.000           134.000                16.105             5.311       9.154
 Mode                 43.000      1.000                        2.000                    28.000           201.000                12.117            14.377       8.887
-Variance            112.859      2.013                       66.341                    84.352          6672.773                84.480           153.970     213.053
 Skewness              0.002      0.003                        0.015                     0.004             0.759                 0.148             3.279       2.558
 Kurtosis             -1.206     -1.307                       -1.192                    -1.199             0.910                -0.875            16.972      10.950
-Entropy              10.586     10.505                       10.412                    10.415            10.452                10.446            10.036      10.181
-
 ```
 
+- Harmonic Mean is very different from the Mean for household_income, debt_to_income_ratio, credit_card_debt, and other_debt. This indicates that there are extreme values in the data. If Harmonic Mean = 0, means there is a zero value in the data, so, cannot say anything about the difference for such variables. 
+- Range and Standard Deviation together clearly indicate that there is a significant variation in the data. I believe this is because of the large number of objects which represent different groups of people.
+- Mode 
+- Skewness is close to zero, which indicates that there is no significant asymmetry in the distribution of education levels. Except for household_income, credit_card_debt, and other_debt it is positive and above zero, meaning the data distribution shows a right-skewed asymmetry, which means there is a longer tail on the right. This is typical of financial indicators, in which there are no upper limits on values. For example, there is an age limit and, accordingly, a time limit for living/working at one location.
+- Kurtosis also mostly have a very big and negative number, means the curves are more flatter vertices and lighter tails. Household_income, credit_card_debt, and other_debt have high sharp peaks and long outliers.
 
+</details>
