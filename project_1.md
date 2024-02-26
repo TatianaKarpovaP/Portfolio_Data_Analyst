@@ -2,7 +2,6 @@
   <a href="https://tatianakarpovap.github.io/Portfolio_Data_Analyst/" target="_self" style="padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px;">Main page</a>
 </div>
 
-
 <style>
   body {
     font-size: 10px; /* Font size for the entire text */
@@ -21,31 +20,22 @@ During my first academic term, I have completed a final assignement and for the 
     - [Dataset description](#title3)
     - [Dataset transforming](#title4)
     - [Dataset statistics](#title5)
-2. [Common and by classes visualization](#title6)
+2. [Visualization by classes](#title6)
 3. 
 
   
 ## <a id="title1">Problem and dataset</a>
+### <a id="title2">Problem formulation</a>  
 
-<details>
-<summary><a href="#title2">Problem formulation</a></summary>
-  
-  Financial institutes like banking are always essential in both global and local economic development. For the past 40 years share of households’ loans and debts in GDP in most countries are constantly growing according to International Monetary Fund statistic (2022). Credit is shown to be likely reliable instrument for people.
-   
-   Many banks now offer a wide variety of credit services. Loans can be issued for various purposes, and interest on loans is the main source of income for banks. Therefore, in order not to lose profits, the flow of credit payments must be constant (Miguéis V.L., Benoit D.F. and Van den Poel D. 2013). But how can banks ensure this? The answer is a client's credit risk assessment. Thus, for example, the researchers studied Machine Learning classifiers techniques based on probability of default value. As a result, they got promising methods, providing accurate credit risk scores (Florez-Lopez R. and Ramon-Jeronimo J.M. 2014, Hooman A. et al 2016).
-   
-   The researchers Subburayan B. et al emphasize the inevitability of the transformation of the banking sector with the help of Machine Learning (2023). For example, quality assessment, bank transactions trends, client traffics. It leads to increasing in customers happiness and income.
-   
-   Although, one of the most important factors in banking operation system is risk management. It causes improvements of bank’s loan portfolio, decreases credit losses from unsecured customers, and even lower default rates. Also, Witzel M., and Bhargava N. claim that the implementation is risk-driven approaches based on Machine Learning may lead not only to time savings and big data problems solutions, but also to reputational and financial impacts (2023).
-   
-   In addition, banks have limited information and at the same time must be confident in its reliability. Even if the client has a stable job and has bought a house, this is not enough. There are many factors that need to be taken into account. At the same time, all banks collect different information about their potential customers. Therefore, each such financial institution needs to develop its own methods to assess credit risks.
-   
-   From all this it follows that banks face an important problem: how to assess the credit risk for each new customer with information about their past default experience? My work provides one of possibles answer to this question.
-</details>
+  Over the past four decades, there has been a consistent increase in the share of household loans and debts in GDP across most countries, highlighting the significance of credit as a reliable financial instrument according to International Monetary Fund statistic (2022).
 
-<details>
-<summary><a href="#title3">Dataset description</a> </summary>
-  
+Banks offer a wide range of credit services, with loans being a primary source of income (Miguéis V.L., Benoit D.F. and Van den Poel D. 2013). To ensure a steady flow of credit payments and avoid profit loss, banks must assess clients' credit risk. Researchers have explored Machine Learning techniques to develop accurate credit risk assessment models, leading to promising methods for evaluating default probabilities (Florez-Lopez R. and Ramon-Jeronimo J.M. 2014, Hooman A. et al 2016). The researchers Subburayan B. et al emphasize the inevitability of the transformation of the banking sector with the help of Machine Learning (2023)
+
+The transformation of the banking sector through Machine Learning is emphasized, impacting areas such as quality assessment, transaction trends, and customer satisfaction, thereby enhancing customer happiness and income. Effective risk management is crucial in banking operations, improving loan portfolios, reducing credit losses, and lowering default rates. Implementation of risk-driven approaches based on Machine Learning can yield time-saving solutions and address big data challenges, with potential reputational and financial benefits.
+
+Despite having limited information, banks must ensure the reliability of their data to develop tailored methods for assessing credit risks. From all this it follows that banks face an important problem: how to assess the credit risk for each new customer with information about their past default experience? My work provides one of possibles answer to this question.
+
+<a id="title3">Dataset description</a>
   This research is based on a dataset extracted from a [Roi Polanitzer's github repository](https://github.com/frm-garp/Logistic-Regression-in-Python--Predict-the-Probability-of-Default-of-an-Individual/blob/main/bank.csv). It contains 700 samples with 9 features. These features are:
 1. age – customer age, years;
 2. education – customer education level;
@@ -60,11 +50,8 @@ During my first academic term, I have completed a final assignement and for the 
 The analysis is based on the hypothesis that unpaid debts in the past leads to unpaid debts in the future. That is why the ‘default’ variable is dependent in the models in this project. Moreover, it presents two classes of customers: reliable if ‘default’=1 and unreliable if ‘default’=0.
 
 All further calculations are made in Python. The data is partly presented below. 
-</details>
 
-<details>
-<summary> <a href="#title4">Dataset transforming</a> </summary>
-
+### <a id="title4">Dataset transforming</a>
   A few steps are made in order to detect errors and inaccuracies and as a result having clean data for further analysis.
 - to detect Nan values;
 - to detect abnormal values;
@@ -198,11 +185,8 @@ def educational_coding(dataset):
     dataset['education'] = dataset['education'].replace(education_mapping)
     return(dataset)
 ```
-</details>
 
-<details>
-<summary> <a href="#title5">Dataset statistics</a> </summary>
-
+### <a id="title5">Dataset statistics</a> 
 Now, let us take a look at some descriptive statistics to form the big picture of the database:
 
 ```python
@@ -244,4 +228,12 @@ Kurtosis             -1.206     -1.307                       -1.192             
 - Skewness is close to zero, which indicates that there is no significant asymmetry in the distribution of education levels. Except for household_income, credit_card_debt, and other_debt it is positive and above zero, meaning the data distribution shows a right-skewed asymmetry, which means there is a longer tail on the right. This is typical of financial indicators, in which there are no upper limits on values. For example, there is an age limit and, accordingly, a time limit for living/working at one location.
 - Kurtosis also mostly have a very big and negative number, means the curves are more flatter vertices and lighter tails. Household_income, credit_card_debt, and other_debt have high sharp peaks and long outliers.
 
-</details>
+## <a id="title6">Visualization by classes</a> 
+To learn more about the behavior patterns within reliable and unreliable customers, the metrics of these two groups is considered. Moreover, number of observations in a group of reliable clients (Y=0) is almost 8 times more than in an unreliable one (Y=1).
+```
+Value "default" counts y
+0    36548
+1     4640
+Name: count, dtype: int64
+```
+Next, two groups of data are analyzed separately, and their descriptive statistics could also be viewed. However, I do not do that, instead, let's move on to analyzing the strength and nature of the relationship between the parameters. In short, the means and standard deviation values between groups are the same, except for the group of clients with debt. For them the indicators are significantly higher.
