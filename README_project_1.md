@@ -7,7 +7,7 @@ During my first academic term, I have completed a final assignement and for the 
 1. [Problem and dataset](#title1)
     - [Problem formulation](#title2)
     - [Dataset description](#title3)
-    - [Dataset cleaning](#title4)
+    - [Dataset transforming](#title4)
 2. [Problem and dataset](#title5) 
   
 ##  <a id="title1">Problem and dataset</a>
@@ -27,20 +27,20 @@ During my first academic term, I have completed a final assignement and for the 
 ### <a id="title3">Dataset description</a> 
 This research is based on a dataset extracted from a [Roi Polanitzer's github repository](https://github.com/frm-garp/Logistic-Regression-in-Python--Predict-the-Probability-of-Default-of-an-Individual/blob/main/bank.csv). It contains 700 samples with 9 features. These features are:
 1. age – customer age, years;
-2. ed – customer education level, coded (1 – university degree, 2 – high school, 3 – illiterate, 4 – basic, 5 – professional course)
-3. employ – time with current employer, years;
-4. address – time at the current address, years;
-5. income – annual income,  in thousands of USD;
-6. debtinc – debt-to-income ratio, %;
-7. creddebt – debt on the credit card, in thousands of USD;
-8. othdebt – other debts,  in thousands of USD;
-9. default – indicates whether a customer defaulted in the past if = 1 than yes, if = 0 does not.
+2. education – customer education level;
+3. years_with_current_employer – time with current employer, years;
+4. years_at_current_address – time at the current address, years;
+5. household_income – annual income,  in thousands of USD;
+6. debt_to_income_ratio – debt-to-income ratio, %;
+7. credit_card_debt – debt on the credit card, in thousands of USD;
+8. other_debt – other debts,  in thousands of USD;
+9. y (or 'default' feature) – indicates whether a customer defaulted in the past if = 1 than yes, if = 0 does not.
 
 The analysis is based on the hypothesis that unpaid debts in the past leads to unpaid debts in the future. That is why the ‘default’ variable is dependent in the models in this project. Moreover, it presents two classes of customers: reliable if ‘default’=1 and unreliable if ‘default’=0.
 
 All further calculations are made in Python. The data is partly presented below. 
 
-### <a id="title4">Dataset cleaning</a> 
+### <a id="title4">Dataset transforming</a> 
 A few steps are made in order to detect errors and inaccuracies and as a result having clean data for further analysis.
 - to detect Nan values;
 - to detect abnormal values;
@@ -48,8 +48,6 @@ A few steps are made in order to detect errors and inaccuracies and as a result 
 
 ```python
     print(dataset.head())
-    print(dataset.info())
-    print(dataset.describe().to_string())
 ```
 
 Output
@@ -65,7 +63,7 @@ Output
         <th>debt_to_income_ratio</th>
         <th>credit_card_debt</th>
         <th>other_debt</th>
-        <th>default</th>
+        <th>y (default)</th>
     </tr>
     <tr>
         <td>0</td>
@@ -133,3 +131,61 @@ Output
         <td>0</td>
     </tr>
 </table>
+
+No significant errors or missing values were found. If any were discovered, they can be replaced using one of the following methods: 
+1) Completely removing such objects from the data set (I do not recommend this method);
+2) Replacing each value with the mean of the sample.
+
+```python
+    print(dataset.info())
+```
+Output
+```
+    <class 'pandas.core.frame.DataFrame'>
+RangeIndex: 41188 entries, 0 to 41187
+Data columns (total 10 columns):
+ #   Column                       Non-Null Count  Dtype  
+---  ------                       --------------  -----  
+ 0   loan_applicant_id            41188 non-null  int64  
+ 1   age                          41188 non-null  int64  
+ 2   education                    41188 non-null  object 
+ 3   years_with_current_employer  41188 non-null  int64  
+ 4   years_at_current_address     41188 non-null  int64  
+ 5   household_income             41188 non-null  int64  
+ 6   debt_to_income_ratio         41188 non-null  float64
+ 7   credit_card_debt             41188 non-null  float64
+ 8   other_debt                   41188 non-null  float64
+ 9   y                            41188 non-null  int64  
+dtypes: float64(3), int64(6), object(1)
+memory usage: 3.1+ MB
+```
+It is seen that the database contains 41,188 records. This is a significant amount from which to draw representative conclusions. All the data is in the expected format. At the same time, I have a desire to standardize the "education" feature. It is made as:
+```python
+    education_mapping = {
+        'university.degree': 1,
+        'high.school': 2,
+        'illiterate': 3,
+        'basic': 4,
+        'professional.course': 5
+    }
+```
+
+Now, let us take a look at some descriptive statistics:
+```python
+    print(dataset.describe().to_string())
+```
+Output
+```
+Dataset description
+        loan_applicant_id        age  education  years_with_current_employer  years_at_current_address  household_income  debt_to_income_ratio  credit_card_debt  other_debt          y
+count          41188.000  41188.000  41188.000                    41188.000                 41188.000         41188.000             41188.000         41188.000   41188.000  41188.000
+mean           20594.500     38.008      2.993                       13.550                    15.385           139.707                16.224             9.577      13.758      0.113
+std            11890.096     10.624      1.419                        8.145                     9.184            81.688                 9.191            12.409      14.597      0.316
+min                1.000     20.000      1.000                        0.000                     0.000            14.000                 0.400             0.006       0.022      0.000
+25%            10297.750     29.000      2.000                        6.000                     7.000            74.000                 8.452             1.853       3.784      0.000
+50%            20594.500     38.000      3.000                       14.000                    15.000           134.000                16.105             5.311       9.154      0.000
+75%            30891.250     47.000      4.000                       21.000                    23.000           196.000                23.731            12.637      18.907      0.000
+max            41188.000     56.000      5.000                       29.000                    31.000           446.000                41.294           149.016     159.198      1.000
+```
+The boolean value of Y can be ignored, since statistics do not provide any useful information. This value is analysed later.
+
