@@ -241,6 +241,7 @@ Next, two groups of data are analyzed separately, and their descriptive statisti
     print(dataset_0.describe().to_string())
   ```
 
+
 Output
 ```
               age  education  years_with_current_employer  years_at_current_address  household_income  debt_to_income_ratio  credit_card_debt  other_debt
@@ -252,7 +253,9 @@ min       20.000      1.000                        0.000                     0.0
 50%       38.000      3.000                       13.000                    16.000           128.000                15.530             4.724       8.480
 75%       47.000      4.000                       20.000                    24.000           186.000                22.935            11.126      17.334
 max       56.000      5.000                       27.000                    31.000           242.000                30.600            55.344      68.666
+
 ```
+
 </details>
 
 
@@ -275,6 +278,7 @@ min      21.000      1.000                        0.000                     0.00
 50%      38.000      3.000                       14.000                    15.000           231.000                21.831            14.528      17.818
 75%      47.000      4.000                       22.000                    22.000           336.000                31.244            33.632      36.710
 max      55.000      5.000                       29.000                    29.000           446.000                41.294           149.016     159.198
+
 ```
 
 </details>
@@ -283,7 +287,6 @@ max      55.000      5.000                       29.000                    29.00
 <p align="center">
   <img src="Figures/Frequency_1.png" alt="Histogram of the distribution frequency" width="800" height="500">
 </p>
-
 
 From the histogram of the frequency distribution, it can be seen that Group 1, which includes unreliable customers (those who were previously identified as defaulting), is clearly inferior in terms of number. It's interesting to note that these clients tend to have household incomes above $220,000. And at the same time, many of them have a significant amount of debt on credit cards and other sources. Based on this information, I can assume that among these unreliable clients, there are a significant number of people who earn more than average and, at the same time, use borrowed funds, and these amounts also exceed average levels. 
 
