@@ -279,29 +279,27 @@ max      55.000      5.000                       29.000                    29.00
 
 </details>
 
+<h5 align="center">Histogram of the distribution frequency</h5>
 <p align="center">
-  <img src="https://github.com/TatianaKarpovaP/Portfolio_Data_Analyst/blob/main/Figures/Frequency_1.png" alt="Histogram of the distribution frequency" width="800" height="500">
+  <img src="Figures/Frequency_1.png" alt="Histogram of the distribution frequency" width="800" height="500">
 </p>
 
-<h3 align="center">Histogram of the distribution frequency</h3>
 
 From the histogram of the frequency distribution, it can be seen that Group 1, which includes unreliable customers (those who were previously identified as defaulting), is clearly inferior in terms of number. It's interesting to note that these clients tend to have household incomes above $220,000. And at the same time, many of them have a significant amount of debt on credit cards and other sources. Based on this information, I can assume that among these unreliable clients, there are a significant number of people who earn more than average and, at the same time, use borrowed funds, and these amounts also exceed average levels. 
 
+<h5 align="center">Distribution density diagram</h5>
 <p align="center">
-  <img src="https://github.com/TatianaKarpovaP/Portfolio_Data_Analyst/blob/main/Figures/Density.png" alt="Distribution density diagram" width="800" height="500">
+  <img src="Figures/Density.png" alt="Distribution density diagram" width="800" height="500">
 </p>
-
-<h3 align="center">Distribution density diagram</h3>
 
 Density diagrams clearly show that, for income and debts ratio, the expected values are higher for unreliable customers. There is a greater spread of data or the presence of outliers for these features. I have also noted that the distributions of credit card debt and other types of debt are not very similar. The figure also correspond with the description of Skewness and Kurtosis mentioned above. 
 
 Now let's move on to analyzing the strength and nature of the relationship between the parameters. For these purposes, a matrix of correlations between all parameters has been calculated. It is interesting to observe how the parameters influence the dependent variable - 'Y'. However, it is not feasible to do this individually for each group, as 'Y' does not vary (for all customers 'Y' is either 0 or 1).
 
+<h5 align="center">Correlation matrix for the whole dataset</h5>
 <p align="center">
-  <img src="Figures/Corr_matrix_whole_data.png" alt="Distribution density diagram" width="650" height="500">
+  <img src="Figures/Corr_matrix_whole_data.png" alt="Distribution density diagram" width="500" height="500">
 </p>
-
-<h3 align="center">Correlation matrix for the whole dataset</h3>
 
 Due to the large data set, it is clear which parameters significantly affect the independent variable. Income growth is associated with an increase in debts and the debt-to-income ratio. However, I am not entirely sure what exactly causes people to take out loans when their income increases. Maybe some individuals are business owners who find it normal to use credit for working capital purposes. Or, perhaps it is a household where, despite rising income, the needs increase faster, for instance, due to the need for expensive purchases such as large houses, cars, or expensive educations for children.
 
