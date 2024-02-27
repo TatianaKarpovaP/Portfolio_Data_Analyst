@@ -234,46 +234,40 @@ Name: count, dtype: int64
 ```
 Next, two groups of data are analyzed separately, and their descriptive statistics are presented further. In short, the means and standard deviation values between groups are the same, except for the group of clients with debt. For them the indicators are significantly higher.
 
-<details>
-  <summary>Dataset of reliable clients description</summary>
+##### Dataset of reliable clients description
 
   ```python
     print(dataset_0.describe().to_string())
   ```
-|            |       age | education | years_with_current_employer | years_at_current_address | household_income | debt_to_income_ratio | credit_card_debt | other_debt |
-|------------|-----------|-----------|----------------------------|--------------------------|------------------|----------------------|------------------|------------|
-| count      | 36548.000 | 36548.000 |                  36548.000 |                36548.000 |        36548.000 |            36548.000 |        36548.000 |  36548.000 |
-| mean       |    37.976 |     2.995 |                     13.448 |                   15.498 |          128.301 |               15.515 |            7.811 |     12.127 |
-| std        |    10.686 |     1.420 |                      8.063 |                    9.246 |           66.318 |                8.665 |            8.427 |     11.344 |
-| min        |    20.000 |     1.000 |                      0.000 |                    0.000 |           14.000 |                0.400 |            0.006 |      0.022 |
-| 25%        |    29.000 |     2.000 |                      6.000 |                    7.000 |           71.000 |                8.041 |            1.651 |      3.552 |
-| 50%        |    38.000 |     3.000 |                     13.000 |                   16.000 |          128.000 |               15.530 |            4.724 |      8.480 |
-| 75%        |    47.000 |     4.000 |                     20.000 |                   24.000 |          186.000 |               22.935 |           11.126 |     17.334 |
-| max        |    56.000 |     5.000 |                     27.000 |                   31.000 |          242.000 |               30.600 |           55.344 |     68.666 |
-
-
-</details>
-
-
-<details>
-  <summary>Dataset of unreliable clients description</summary>
+```
+Output
+              age  education  years_with_current_employer  years_at_current_address  household_income  debt_to_income_ratio  credit_card_debt  other_debt        y
+count  36548.000  36548.000                    36548.000                 36548.000         36548.000             36548.000         36548.000   36548.000  36548.0
+mean      37.976      2.995                       13.448                    15.498           128.301                15.515             7.811      12.127      0.0
+std       10.686      1.420                        8.063                     9.246            66.318                 8.665             8.427      11.344      0.0
+min       20.000      1.000                        0.000                     0.000            14.000                 0.400             0.006       0.022      0.0
+25%       29.000      2.000                        6.000                     7.000            71.000                 8.041             1.651       3.552      0.0
+50%       38.000      3.000                       13.000                    16.000           128.000                15.530             4.724       8.480      0.0
+75%       47.000      4.000                       20.000                    24.000           186.000                22.935            11.126      17.334      0.0
+max       56.000      5.000                       27.000                    31.000           242.000                30.600            55.344      68.666      0.0
+```
+##### Dataset of unreliable clients description
 
   ```python
     print(dataset_1.describe().to_string())
   ```
-|                           |      age | education | years_with_current_employer | years_at_current_address | household_income | debt_to_income_ratio | credit_card_debt | other_debt |
-|---------------------------|----------|-----------|----------------------------|--------------------------|-------------------|----------------------|------------------|------------|
-| count                     | 4640.000 | 4640.000  | 4640.000                   | 4640.000                 | 4640.000          | 4640.000             | 4640.000         | 4640.000   |
-| mean                      |   38.261 |    2.980  |   14.356                   |   14.500                 |  229.555          |   21.810             |   23.490         |   26.605   |
-| std                       |   10.112 |    1.411  |    8.723                   |    8.637                 |  124.487          |   11.109             |   24.277         |   26.302   |
-| min                       |   21.000 |    1.000  |    0.000                   |    0.000                 |   14.000          |    2.407             |    0.057         |    0.222   |
-| 25%                       |   29.000 |    2.000  |    7.000                   |    7.000                 |  122.000          |   12.293             |    5.807         |    7.537   |
-| 50%                       |   38.000 |    3.000  |   14.000                   |   15.000                 |  231.000          |   21.831             |   14.528         |   17.818   |
-| 75%                       |   47.000 |    4.000  |   22.000                   |   22.000                 |  336.000          |   31.244             |   33.632         |   36.710   |
-| max                       |   55.000 |    5.000  |   29.000                   |   29.000                 |  446.000          |   41.294             |  149.016         |  159.198   |
-
-</details>
-
+```
+Output
+             age  education  years_with_current_employer  years_at_current_address  household_income  debt_to_income_ratio  credit_card_debt  other_debt       y
+count  4640.000   4640.000                     4640.000                  4640.000          4640.000              4640.000          4640.000    4640.000  4640.0
+mean     38.261      2.980                       14.356                    14.500           229.555                21.810            23.490      26.605     1.0
+std      10.112      1.411                        8.723                     8.637           124.487                11.109            24.277      26.302     0.0
+min      21.000      1.000                        0.000                     0.000            14.000                 2.407             0.057       0.222     1.0
+25%      29.000      2.000                        7.000                     7.000           122.000                12.293             5.807       7.537     1.0
+50%      38.000      3.000                       14.000                    15.000           231.000                21.831            14.528      17.818     1.0
+75%      47.000      4.000                       22.000                    22.000           336.000                31.244            33.632      36.710     1.0
+max      55.000      5.000                       29.000                    29.000           446.000                41.294           149.016     159.198     1.0
+```
 <h5 align="center">Histogram of the distribution frequency</h5>
 <p align="center">
   <img src="Figures/Frequency_1.png" alt="Histogram of the distribution frequency" width="800" height="500">
