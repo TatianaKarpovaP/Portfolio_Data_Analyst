@@ -2,12 +2,6 @@
   <a href="https://tatianakarpovap.github.io/Portfolio_Data_Analyst/" target="_self" style="padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px;">Main page</a>
 </div>
 
-<style>
-  body {
-    font-size: 10px; /* Font size for the entire text */
-  }
-</style>
-
 
 # Project 'Credit risk score'
 ###### *This project is an intellectual property. When quoting, please indicate the original source*
@@ -20,8 +14,10 @@ During my first academic term, I have completed a final assignement and for the 
     - [Dataset description](#title3)
     - [Dataset transforming](#title4)
     - [Dataset statistics](#title5)
-2. [Visualization by classes](#title6)
-3. 
+2. [Visualization](#title6)
+3. [Models implementation](#title7)
+   - [Logistic regression model assessment](#title8)
+   - [K-Nearest Neighbors model assessment](#title9)
 
   
 ## <a id="title1">Problem and dataset</a>
@@ -194,7 +190,7 @@ Now, let us take a look at some descriptive statistics to form the big picture o
 ```
 Output
 ```
-Dataset description
+Whole dataset description
               age  education  years_with_current_employer  years_at_current_address  household_income  debt_to_income_ratio  credit_card_debt  other_debt
 count  41188.000  41188.000                    41188.000                 41188.000         41188.000             41188.000         41188.000   41188.000
 mean      38.008      2.993                       13.550                    15.385           139.707                16.224             9.577      13.758
@@ -224,11 +220,11 @@ Kurtosis             -1.206     -1.307                       -1.192             
 
 - Harmonic Mean is very different from the Mean for household_income, debt_to_income_ratio, credit_card_debt, and other_debt. This indicates that there are extreme values in the data. If Harmonic Mean = 0, means there is a zero value in the data, so, cannot say anything about the difference for such variables. 
 - Range and Standard Deviation together clearly indicate that there is a significant variation in the data. I believe this is because of the large number of objects which represent different groups of people.
-- Mode 
+- Mode shows the most common values. They are seen from the table, does not require lots of comments  
 - Skewness is close to zero, which indicates that there is no significant asymmetry in the distribution of education levels. Except for household_income, credit_card_debt, and other_debt it is positive and above zero, meaning the data distribution shows a right-skewed asymmetry, which means there is a longer tail on the right. This is typical of financial indicators, in which there are no upper limits on values. For example, there is an age limit and, accordingly, a time limit for living/working at one location.
 - Kurtosis also mostly have a very big and negative number, means the curves are more flatter vertices and lighter tails. Household_income, credit_card_debt, and other_debt have high sharp peaks and long outliers.
 
-## <a id="title6">Visualization by classes</a> 
+## <a id="title6">Visualization</a> 
 To learn more about the behavior patterns within reliable and unreliable customers, the metrics of these two groups is considered. Moreover, number of observations in a group of reliable clients (Y=0) is almost 8 times more than in an unreliable one (Y=1).
 ```
 Value 'y' (default)
@@ -236,4 +232,86 @@ Value 'y' (default)
 1     4640
 Name: count, dtype: int64
 ```
-Next, two groups of data are analyzed separately, and their descriptive statistics could also be viewed. However, I do not do that, instead, let's move on to analyzing the strength and nature of the relationship between the parameters. In short, the means and standard deviation values between groups are the same, except for the group of clients with debt. For them the indicators are significantly higher.
+Next, two groups of data are analyzed separately, and their descriptive statistics are presented further. In short, the means and standard deviation values between groups are the same, except for the group of clients with debt. For them the indicators are significantly higher.
+
+<details>
+  <summary>Dataset of reliable clients description</summary>
+
+  ```python
+    print(dataset_0.describe().to_string())
+  ```
+
+Output
+```
+              age  education  years_with_current_employer  years_at_current_address  household_income  debt_to_income_ratio  credit_card_debt  other_debt
+count  36548.000  36548.000                    36548.000                 36548.000         36548.000             36548.000         36548.000   36548.000
+mean      37.976      2.995                       13.448                    15.498           128.301                15.515             7.811      12.127
+std       10.686      1.420                        8.063                     9.246            66.318                 8.665             8.427      11.344
+min       20.000      1.000                        0.000                     0.000            14.000                 0.400             0.006       0.022
+25%       29.000      2.000                        6.000                     7.000            71.000                 8.041             1.651       3.552
+50%       38.000      3.000                       13.000                    16.000           128.000                15.530             4.724       8.480
+75%       47.000      4.000                       20.000                    24.000           186.000                22.935            11.126      17.334
+max       56.000      5.000                       27.000                    31.000           242.000                30.600            55.344      68.666
+```
+</details>
+
+
+<details>
+  <summary>Dataset of unreliable clients description</summary>
+
+  ```python
+    print(dataset_1.describe().to_string())
+  ```
+
+Output
+
+```
+             age  education  years_with_current_employer  years_at_current_address  household_income  debt_to_income_ratio  credit_card_debt  other_debt
+count  4640.000   4640.000                     4640.000                  4640.000          4640.000              4640.000          4640.000    4640.000
+mean     38.261      2.980                       14.356                    14.500           229.555                21.810            23.490      26.605
+std      10.112      1.411                        8.723                     8.637           124.487                11.109            24.277      26.302
+min      21.000      1.000                        0.000                     0.000            14.000                 2.407             0.057       0.222
+25%      29.000      2.000                        7.000                     7.000           122.000                12.293             5.807       7.537
+50%      38.000      3.000                       14.000                    15.000           231.000                21.831            14.528      17.818
+75%      47.000      4.000                       22.000                    22.000           336.000                31.244            33.632      36.710
+max      55.000      5.000                       29.000                    29.000           446.000                41.294           149.016     159.198
+```
+
+</details>
+
+<p align="center">
+  <img src="https://github.com/TatianaKarpovaP/Portfolio_Data_Analyst/blob/main/Figures/Frequency_1.png" alt="Histogram of the distribution frequency" width="800" height="500">
+</p>
+
+<h3 align="center">Histogram of the distribution frequency</h3>
+
+From the histogram of the frequency distribution, it can be seen that Group 1, which includes unreliable customers (those who were previously identified as defaulting), is clearly inferior in terms of number. It's interesting to note that these clients tend to have household incomes above $220,000. And at the same time, many of them have a significant amount of debt on credit cards and other sources. Based on this information, I can assume that among these unreliable clients, there are a significant number of people who earn more than average and, at the same time, use borrowed funds, and these amounts also exceed average levels. 
+
+<p align="center">
+  <img src="https://github.com/TatianaKarpovaP/Portfolio_Data_Analyst/blob/main/Figures/Density.png" alt="Distribution density diagram" width="800" height="500">
+</p>
+
+<h3 align="center">Distribution density diagram</h3>
+
+Density diagrams clearly show that, for income and debts ratio, the expected values are higher for unreliable customers. There is a greater spread of data or the presence of outliers for these features. I have also noted that the distributions of credit card debt and other types of debt are not very similar. The figure also correspond with the description of Skewness and Kurtosis mentioned above. 
+
+Now let's move on to analyzing the strength and nature of the relationship between the parameters. For these purposes, a matrix of correlations between all parameters has been calculated. It is interesting to observe how the parameters influence the dependent variable - 'Y'. However, it is not feasible to do this individually for each group, as 'Y' does not vary (for all customers 'Y' is either 0 or 1).
+
+<p align="center">
+  <img src="Figures/Corr_matrix_whole_data.png" alt="Distribution density diagram" width="650" height="500">
+</p>
+
+<h3 align="center">Correlation matrix for the whole dataset</h3>
+
+Due to the large data set, it is clear which parameters significantly affect the independent variable. Income growth is associated with an increase in debts and the debt-to-income ratio. However, I am not entirely sure what exactly causes people to take out loans when their income increases. Maybe some individuals are business owners who find it normal to use credit for working capital purposes. Or, perhaps it is a household where, despite rising income, the needs increase faster, for instance, due to the need for expensive purchases such as large houses, cars, or expensive educations for children.
+
+## <a id="title7">Models implementation</a>  
+
+For the classification task Logistic regression is chosen. It works well on large datasets. It is also easy to interpret, and can predict the probability of belonging to a class, which is useful for decision-making. The second excellent method is the K-Nearest Neighbors. Unfortunately, it is difficult to identify whether the studied data have linear dependency, so the method deals well with nonlinear dependencies between features and the target variable. On the other hand, the method may be less effective on large datasets. Despite this, it is worth trying to evaluate both models. 
+
+The following Python libraries are used to program the modelss: train_test_split, StandardScaler, LogisticRegression, and KNeighborsClassifier. 
+
+### <a id="title8">Logistic regression model assessment</a>  
+
+
+### <a id="title9">K-Nearest Neighbor model assessment</a>
