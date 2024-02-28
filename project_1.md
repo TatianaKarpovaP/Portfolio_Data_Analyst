@@ -4,7 +4,7 @@
 
 
 # Project 'Credit risk score'
-###### *This project is an intellectual property. When quoting, please indicate the original source*
+###### *This project is my intellectual property. When quoting, please indicate the original source*
 
 During my first academic term, I have completed a final assignement and for the topic I have chosen to focus on the banking sector and the issues of credit risk assessment. I conducted an analysis of an open database from a repository of Chief Data Scientist at Prediction Consultants in Israel - [Roi Polanitzer (github account)](https://github.com/frm-garp). The raw data can be found [here](https://github.com/frm-garp/Logistic-Regression-in-Python--Predict-the-Probability-of-Default-of-an-Individual/blob/main/bank.csv).
 
@@ -28,14 +28,14 @@ During my first academic term, I have completed a final assignement and for the 
 
   Over the past four decades, there has been a consistent increase in the share of household loans and debts in GDP across most countries, highlighting the significance of credit as a reliable financial instrument according to International Monetary Fund statistic (2022).
 
-Banks offer a wide range of credit services, with loans being a primary source of income (Miguéis V.L., Benoit D.F. and Van den Poel D. 2013). To ensure a steady flow of credit payments and avoid profit loss, banks must assess clients' credit risk. Researchers have explored Machine Learning techniques to develop accurate credit risk assessment models, leading to promising methods for evaluating default probabilities (Florez-Lopez R. and Ramon-Jeronimo J.M. 2014, Hooman A. et al 2016). The researchers Subburayan B. et al emphasize the inevitability of the transformation of the banking sector with the help of Machine Learning (2023)
+Banks offer a wide range of credit services, with loans being a primary source of income (Miguéis V.L., Benoit D.F. and Van den Poel D. 2013). To ensure a steady flow of credit payments and avoid profit loss, banks must assess clients' credit risk. Researchers have explored Machine Learning techniques to develop accurate credit risk assessment models, leading to promising methods for evaluating default probabilities (Florez-Lopez R. and Ramon-Jeronimo J.M. 2014, Hooman A. et al 2016). The researchers Subburayan B. et al emphasize the inevitability of the transformation of the banking sector with the help of Machine Learning (2023).
 
 The transformation of the banking sector through Machine Learning is emphasized, impacting areas such as quality assessment, transaction trends, and customer satisfaction, thereby enhancing customer happiness and income. Effective risk management is crucial in banking operations, improving loan portfolios, reducing credit losses, and lowering default rates. Implementation of risk-driven approaches based on Machine Learning can yield time-saving solutions and address big data challenges, with potential reputational and financial benefits.
 
 Despite having limited information, banks must ensure the reliability of their data to develop tailored methods for assessing credit risks. From all this it follows that banks face an important problem: how to assess the credit risk for each new customer with information about their past default experience? My work provides one of possibles answer to this question.
 
 <a id="title3">Dataset description</a>
-  This research is based on a dataset extracted from a [Roi Polanitzer's github repository](https://github.com/frm-garp/Logistic-Regression-in-Python--Predict-the-Probability-of-Default-of-an-Individual/blob/main/bank.csv). It contains 700 samples with 9 features. These features are:
+  This research is based on a dataset extracted from a [Roi Polanitzer's github repository](https://github.com/frm-garp/Logistic-Regression-in-Python--Predict-the-Probability-of-Default-of-an-Individual/blob/main/bank.csv). It contains 41188 samples with 9 features. These features are:
 1. age – customer age, years;
 2. education – customer education level;
 3. years_with_current_employer – time with current employer, years;
@@ -44,9 +44,9 @@ Despite having limited information, banks must ensure the reliability of their d
 6. debt_to_income_ratio – debt-to-income ratio, %;
 7. credit_card_debt – debt on the credit card, in thousands of USD;
 8. other_debt – other debts,  in thousands of USD;
-9. y (or 'default' feature) – indicates whether a customer defaulted in the past if = 1 than yes, if = 0 does not.
+9. y – indicates whether a customer defaulted in the past if = 1 than yes, if = 0 does not.
 
-The analysis is based on the hypothesis that unpaid debts in the past leads to unpaid debts in the future. That is why the ‘default’ variable is dependent in the models in this project. Moreover, it presents two classes of customers: reliable if ‘default’=1 and unreliable if ‘default’=0.
+The analysis is based on the hypothesis that unpaid debts in the past leads to unpaid debts in the future. That is why the ‘y’ variable is dependent in the models in this project. Moreover, it presents two classes of customers: reliable if ‘y’=0 and unreliable if ‘y’=1.
 
 All further calculations are made in Python. The data is partly presented below. 
 
@@ -73,7 +73,7 @@ Output
         <th>debt_to_income_ratio</th>
         <th>credit_card_debt</th>
         <th>other_debt</th>
-        <th>y (default)</th>
+        <th>y</th>
     </tr>
     <tr>
         <td>0</td>
@@ -230,7 +230,7 @@ Kurtosis             -1.206     -1.307                       -1.192             
 ## <a id="title6">Visualization</a> 
 To learn more about the behavior patterns within reliable and unreliable customers, the metrics of these two groups is considered. Moreover, number of observations in a group of reliable clients (Y=0) is almost 8 times more than in an unreliable one (Y=1).
 ```
-Value 'y' (default)
+Value 'y'
 0    36548
 1     4640
 Name: count, dtype: int64
