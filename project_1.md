@@ -16,9 +16,11 @@ During my first academic term, I have completed a final assignement and for the 
     - [Dataset statistics](#title5)
 2. [Visualization](#title6)
 3. [Models implementation](#title7)
-   - [Logistic regression model assessment](#title8)
-   - [K-Nearest Neighbors model assessment](#title9)
+   - [Logistic regression model](#title8)
+   - [Random Forest model](#title9)
    - [Predictions](#title10)
+4. [Concluding remarks](#title11)
+5. [Bibliography](#title12)
 
   
 ## <a id="title1">Problem and dataset</a>
@@ -300,7 +302,7 @@ For the classification task Logistic regression is chosen. It works well on larg
 
 The following Python libraries are used to program the modelss: train_test_split, StandardScaler, LogisticRegression, and KNeighborsClassifier. 
 
-### <a id="title8">Logistic regression model assessment</a>  
+### <a id="title8">Logistic regression model</a>  
 The model was trained on 80% of the dataset and then evaluated. The accuracy is quite high, equal to 92%. This I consider to be an excellent indicator of the model's performance. The precision and recall scores are also quite good, but the ability of the model to identify unreliable customers (Class 1) is not that good. Only 35% of these customers were correctly identified by the model. I believe this is due to the imbalance in the distribution of data between classes. I have tried using the class weighting technique to address the issue, but the accuracy and other indicators have actually worsened in some cases.
 
   ```python
@@ -312,7 +314,7 @@ def log_reg(X_train, X_test, y_train, y_test):
           classification_report(y_test, predictions_train))
     conf_matrix_log_reg = confusion_matrix(y_test, predictions_train)
   ```
-#### Logistic regression model assessment
+**Model assessment**
 ```
 Classification Report for the Logisic Rergession:
                precision    recall  f1-score   support
@@ -324,20 +326,50 @@ Classification Report for the Logisic Rergession:
    macro avg       0.96      0.67      0.74      8238
 weighted avg       0.93      0.92      0.91      8238
 ```
+<h5 align="center">Confusion matric for the Logistic regression</h5>
+<p align="center">
+  <img src="Figures/Conf_matrix_Log_Model.png" alt="Confusion matric for the Logistic regression" width="400" height="350">
+</p>
 
-### <a id="title9">K-Nearest Neighbor model assessment</a>
+### <a id="title9">Random Forest model</a>  
+The model was trained on 80% of the dataset and then evaluated. The accuracy is even higher, equals to 96%. All indicators of the model have improved, and it now recognizes a smaller group even better.
+
   ```python
-    print(dataset_1.describe().to_string())
+    model_rf = RandomForestClassifier(n_estimators=n_estimators,
+                                      random_state=42)
+    model_rf.fit(X_train, y_train)
+    y_pred_rf = model_rf.predict(X_test)
+
+    print("Classification Report for the Random Forest:\n",
+          classification_report(y_test, y_pred_rf))
+
+    cm = confusion_matrix(y_test, y_pred_rf)
   ```
 
-#### K-Nearest Neighbor model assessment
+**Model assessment**
 ```
+Classification Report for the Random Forest:
+              precision    recall  f1-score   support
 
+           0       0.95      1.00      0.98      7290
+           1       1.00      0.63      0.77       948
+
+    accuracy                           0.96      8238
+   macro avg       0.98      0.81      0.87      8238
+weighted avg       0.96      0.96      0.95      8238
 ```
+<h5 align="center">Confusion matric for the Random Forest</h5>
+<p align="center">
+  <img src="Figures/Conf_matrix_Random_Forest.png" alt="Confusion matric for the Random Forest" width="400" height="350">
+</p>
 
 ### <a id="title10">Predictions</a>
 
-Trained models can be used to determine whether a new client will be reliable and repay the loan, or not. The bank should not provide a loan to such clients. Consider the example of two clients.
+Trained models can be used to determine whether a new client will be reliable and repay the loan, or not. The bank should not provide a loan to such clients. Consider the example of two clients. Please, see the table below. 
+
+Based only on the descriptive statistics of the data, it is already possible to assume that the Second client is more likely to get the credit from a bank than the first client, since his debt to income ratio tends towards the average value for reliable clients. However, in order to be sure, it is necessary to make a prediction based on the models.
+
+There are the results!
 
 | Parameter                        | First Client  | Second Client |
 |----------------------------------|---------------|---------------|
@@ -349,10 +381,47 @@ Trained models can be used to determine whether a new client will be reliable an
 | Debt-to-Income Ratio             | 15.00         | 36.66         |
 | Credit Card Debt                 | 3.58          | 23.4          |
 | Other Debt                       | 5.36         | 35.12         |
+| **Logisic Rergession**           | Predicted class = **[0]** | Predicted class = **[0]** |
+| **Random Forest**                | Predicted class = **[0]** | Predicted class = **[1]** |
+
+For the first client, the class was assigned in the same way for both models. To illustrate the difference between the two models, let's take a look at the assigned class and probability in logistic regression. 
+
+The example of the second client demonstrates that if it is challenging to uniquely identify a customer in one of the groups using one of the approaches, then it may be beneficial to employ a combination of both methods.
+
+<details>
+  <summary>In more details</summary>
+  
+The probability of not repaying the loan was extremely low, equal to just 1.93%. You can see this on the sigmoind function above. Meanwhile, the probability was much higher for the second client = 31.40%. Even so, the client can still be trusted to make payments. However, the random forest model treated this client more strictly, classifying them as an unreliable customer.
+
+<h5 align="center">Sigmoid function for the first (left) and the second (right) client</h5>
+
+<p align="center">
+  <img src="Figures/Sigm_Function.png" alt="Sigmoid function for the first client" width="400" height="350">
+  <img src="Figures/Second_client_sigm_fun.png" alt="Sigmoid function for the second client" width="400" height="350">
+</p>
+  </details>
+
+### <a id="title11">Concluding remarks</a>
+
+After the analysis, the main findings can be practically applied in the Artificial Bank operation. In particular, the distinctive characteristics of reliable and unreliable groups, as well as the main factors influencing group belonging. 
+- Firstly, to use the proposed model in the web application on daily basis for decision making. Just entering the client's basic data, such as age, education level, work experience, residence at the same address, annual income, debt-to-income ratio, credit card and other debts, and the probability of being unreliable is calculated. 
+- Secondly, to design its own credit scores, for example, the “ABC” system, dividing customers into three groups depended on the probability of being unreliable. Group "A" includes the most reliable clients (0.45–0), "C" - the least reliable (1–0.56), and "B" (0.55–0.46) is considered a “Gray zone” where changes are required to improve the assessment, for example, an find new income sources or repayment of existing debts.
+- Thirdly, to supplement the database with new loan parameters to improve the model such as term, interest rate, and amount. It may extend the model. 
+
+To improve the model, I recommend a more in-depth analysis of the influence of the debt structure, the income of all members of the household, and household composition. Additionally, as a new factor, I would like to consider the impact of a credit terms on the final decision-making process. This could be assisted by statistics on the following factors: total amount, duration, purpose, and the percentage of the requested credit. 
+
+These recommendations may reduce the percentage of non-repayment loans and increase the bank's assets turnover, making it more financial stable.
 
 
-Based only on the descriptive statistics of the data, it is already possible to assume that the Second client is more likely to get the credit from a bank than the first client, since his debt to income ratio tends towards the average value for reliable clients. However, in order to be sure, it is necessary to make a prediction based on the models.
+######  *Thank you for your attention. I am available to answer any questions or provide suggestions*
 
 
+### <a id="title12">Bibliography</a>
 
+1.	Florez-Lopez R. and Ramon-Jeronimo J.M. (2014) ‘Modelling credit risk with scarce default data: on the suitability of cooperative bootstrapped strategies for small low-default portfolios.’ The Journal of the Operational Research Society 65 (3) 416-434
+2.	Hooman A. et al (2016) ‘Statistical and data mining methods in credit scoring.’ The Journal of Developing Areas 50 (5) 371-381
+3.	International Monetary Fund (2022) Household debt, loans and debt securities [online] available from <https://www.imf.org/external/datamapper/HH_LS@GDD/CAN/GBR/USA/DEU/ITA/FRA/JPN/VNM.> [25 January 2024] 
+5.	Miguéis V.L., Benoit D.F. and Van den Poel D. (2013) ‘Enhanced decision support in credit scoring using Bayesian binary quantile regression.’ The Journal of the Operational Research Society 64 (9) 1374-1383
+6.	Subburayan B. et al (2023) Patent - Transforming Traditional Banking The AI Revolution Research Gate [online] available from https://www.researchgate.net/publication/374504440_Patent__Transforming_Traditional_Banking_The_AI_Revolution/.> [20 January 2024]
+7.	Witzel M., and Bhargava N. (2023), ‘AI-Related Risk: The Merits of an ESG-Based Approach to Oversight.’ Centre for International Governance Innovation
 
