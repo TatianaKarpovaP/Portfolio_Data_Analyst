@@ -18,6 +18,7 @@ During my first academic term, I have completed a final assignement and for the 
 3. [Models implementation](#title7)
    - [Logistic regression model assessment](#title8)
    - [K-Nearest Neighbors model assessment](#title9)
+   - [Predictions](#title10)
 
   
 ## <a id="title1">Problem and dataset</a>
@@ -241,15 +242,15 @@ Next, two groups of data are analyzed separately, and their descriptive statisti
   ```
 ```
 Output
-              age  education  years_with_current_employer  years_at_current_address  household_income  debt_to_income_ratio  credit_card_debt  other_debt        y
-count  36548.000  36548.000                    36548.000                 36548.000         36548.000             36548.000         36548.000   36548.000  36548.0
-mean      37.976      2.995                       13.448                    15.498           128.301                15.515             7.811      12.127      0.0
-std       10.686      1.420                        8.063                     9.246            66.318                 8.665             8.427      11.344      0.0
-min       20.000      1.000                        0.000                     0.000            14.000                 0.400             0.006       0.022      0.0
-25%       29.000      2.000                        6.000                     7.000            71.000                 8.041             1.651       3.552      0.0
-50%       38.000      3.000                       13.000                    16.000           128.000                15.530             4.724       8.480      0.0
-75%       47.000      4.000                       20.000                    24.000           186.000                22.935            11.126      17.334      0.0
-max       56.000      5.000                       27.000                    31.000           242.000                30.600            55.344      68.666      0.0
+              age  education  years_with_current_employer  years_at_current_address  household_income  debt_to_income_ratio  credit_card_debt  other_debt
+count  36548.000  36548.000                    36548.000                 36548.000         36548.000             36548.000         36548.000   36548.000
+mean      37.976      2.995                       13.448                    15.498           128.301                15.515             7.811      12.127
+std       10.686      1.420                        8.063                     9.246            66.318                 8.665             8.427      11.344
+min       20.000      1.000                        0.000                     0.000            14.000                 0.400             0.006       0.022
+25%       29.000      2.000                        6.000                     7.000            71.000                 8.041             1.651       3.552
+50%       38.000      3.000                       13.000                    16.000           128.000                15.530             4.724       8.480
+75%       47.000      4.000                       20.000                    24.000           186.000                22.935            11.126      17.334
+max       56.000      5.000                       27.000                    31.000           242.000                30.600            55.344      68.666
 ```
 ##### Dataset of unreliable clients description
 
@@ -258,15 +259,15 @@ max       56.000      5.000                       27.000                    31.0
   ```
 ```
 Output
-             age  education  years_with_current_employer  years_at_current_address  household_income  debt_to_income_ratio  credit_card_debt  other_debt       y
-count  4640.000   4640.000                     4640.000                  4640.000          4640.000              4640.000          4640.000    4640.000  4640.0
-mean     38.261      2.980                       14.356                    14.500           229.555                21.810            23.490      26.605     1.0
-std      10.112      1.411                        8.723                     8.637           124.487                11.109            24.277      26.302     0.0
-min      21.000      1.000                        0.000                     0.000            14.000                 2.407             0.057       0.222     1.0
-25%      29.000      2.000                        7.000                     7.000           122.000                12.293             5.807       7.537     1.0
-50%      38.000      3.000                       14.000                    15.000           231.000                21.831            14.528      17.818     1.0
-75%      47.000      4.000                       22.000                    22.000           336.000                31.244            33.632      36.710     1.0
-max      55.000      5.000                       29.000                    29.000           446.000                41.294           149.016     159.198     1.0
+             age  education  years_with_current_employer  years_at_current_address  household_income  debt_to_income_ratio  credit_card_debt  other_debt
+count  4640.000   4640.000                     4640.000                  4640.000          4640.000              4640.000          4640.000    4640.000
+mean     38.261      2.980                       14.356                    14.500           229.555                21.810            23.490      26.605
+std      10.112      1.411                        8.723                     8.637           124.487                11.109            24.277      26.302
+min      21.000      1.000                        0.000                     0.000            14.000                 2.407             0.057       0.222
+25%      29.000      2.000                        7.000                     7.000           122.000                12.293             5.807       7.537
+50%      38.000      3.000                       14.000                    15.000           231.000                21.831            14.528      17.818
+75%      47.000      4.000                       22.000                    22.000           336.000                31.244            33.632      36.710
+max      55.000      5.000                       29.000                    29.000           446.000                41.294           149.016     159.198
 ```
 <h5 align="center">Histogram of the distribution frequency</h5>
 <p align="center">
@@ -289,7 +290,9 @@ Now let's move on to analyzing the strength and nature of the relationship betwe
   <img src="Figures/Corr_matrix_whole_data.png" alt="Distribution density diagram" width="500" height="500">
 </p>
 
-Due to the large data set, it is clear which parameters significantly affect the independent variable. Income growth is associated with an increase in debts and the debt-to-income ratio. However, I am not entirely sure what exactly causes people to take out loans when their income increases. Maybe some individuals are business owners who find it normal to use credit for working capital purposes. Or, perhaps it is a household where, despite rising income, the needs increase faster, for instance, due to the need for expensive purchases such as large houses, cars, or expensive educations for children.
+Due to the large data set, it is clear which parameters significantly affect the independent variable. Income growth is associated with an increase in debts and the debt-to-income ratio. However, I am not entirely sure what exactly causes people to take out loans when their income increases. Maybe some individuals are business owners who find it normal to use credit for working capital purposes. Or, perhaps it is a household where, despite rising income, the needs increase faster, for instance, due to the need for expensive purchases such as large houses, cars, or expensive educations for children. 
+
+In summary, the main indicator, is the debt to income ratio. The greater the proportion, the greater the likelihood that the customer will not repay the debt.
 
 ## <a id="title7">Models implementation</a>  
 
@@ -298,6 +301,58 @@ For the classification task Logistic regression is chosen. It works well on larg
 The following Python libraries are used to program the modelss: train_test_split, StandardScaler, LogisticRegression, and KNeighborsClassifier. 
 
 ### <a id="title8">Logistic regression model assessment</a>  
+The model was trained on 80% of the dataset and then evaluated. The accuracy is quite high, equal to 92%. This I consider to be an excellent indicator of the model's performance. The precision and recall scores are also quite good, but the ability of the model to identify unreliable customers (Class 1) is not that good. Only 35% of these customers were correctly identified by the model. I believe this is due to the imbalance in the distribution of data between classes. I have tried using the class weighting technique to address the issue, but the accuracy and other indicators have actually worsened in some cases.
 
+  ```python
+def log_reg(X_train, X_test, y_train, y_test):
+    model = LogisticRegression(max_iter=5000)
+    model.fit(X_train, y_train)
+    predictions_train = model.predict(X_test)
+    print("\nClassification Report for the Logisic Rergession:\n",
+          classification_report(y_test, predictions_train))
+    conf_matrix_log_reg = confusion_matrix(y_test, predictions_train)
+  ```
+#### Logistic regression model assessment
+```
+Classification Report for the Logisic Rergession:
+               precision    recall  f1-score   support
+
+           0       0.92      1.00      0.96      7290
+           1       1.00      0.35      0.52       948
+
+    accuracy                           0.92      8238
+   macro avg       0.96      0.67      0.74      8238
+weighted avg       0.93      0.92      0.91      8238
+```
 
 ### <a id="title9">K-Nearest Neighbor model assessment</a>
+  ```python
+    print(dataset_1.describe().to_string())
+  ```
+
+#### K-Nearest Neighbor model assessment
+```
+
+```
+
+### <a id="title10">Predictions</a>
+
+Trained models can be used to determine whether a new client will be reliable and repay the loan, or not. The bank should not provide a loan to such clients. Consider the example of two clients.
+
+| Parameter                        | First Client  | Second Client |
+|----------------------------------|---------------|---------------|
+| Age                              | 58            | 31            |
+| Education                        | 2 (High School) | 5 (Professional Course) |
+| Years with Current Employer      | 24            | 2             |
+| Years at Current Address         | 3             | 4             |
+| Household Income                 | 59.6          | 159.6         |
+| Debt-to-Income Ratio             | 15.00         | 36.66         |
+| Credit Card Debt                 | 3.58          | 23.4          |
+| Other Debt                       | 5.36         | 35.12         |
+
+
+Based only on the descriptive statistics of the data, it is already possible to assume that the Second client is more likely to get the credit from a bank than the first client, since his debt to income ratio tends towards the average value for reliable clients. However, in order to be sure, it is necessary to make a prediction based on the models.
+
+
+
+
