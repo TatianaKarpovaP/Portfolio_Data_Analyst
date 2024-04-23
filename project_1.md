@@ -29,9 +29,9 @@ Banks offer a wide range of credit services, with loans being a primary source o
 
 The transformation of the banking sector through Machine Learning is emphasized, impacting areas such as quality assessment, transaction trends, and customer satisfaction, thereby enhancing customer happiness and income. Effective risk management is crucial in banking operations, improving loan portfolios, reducing credit losses, and lowering default rates. Implementation of risk-driven approaches based on Machine Learning can yield time-saving solutions and address big data challenges, with potential reputational and financial benefits.
 
-Despite having limited information, banks must ensure the reliability of their data to develop tailored methods for assessing credit risks. From all this it follows that banks face an important problem: how to assess the credit risk for each new customer with information about their past default experience? My work provides one of possibles answer to this question.
+Despite having limited information, banks must ensure the reliability of their data to develop tailored methods for assessing credit risks. **From all this it follows that banks face an important problem: how to assess the credit risk for each new customer with information about their past default experience?** My work provides one of possibles answer to this question.
 
-<a id="title3">Dataset description</a>
+### <a id="title3">Dataset description</a>
   This research is based on a dataset extracted from a [Roi Polanitzer's github repository](https://github.com/frm-garp/Logistic-Regression-in-Python--Predict-the-Probability-of-Default-of-an-Individual/blob/main/bank.csv). It contains 41188 samples with 9 features. These features are:
 1. age – customer age, years;
 2. education – customer education level;
