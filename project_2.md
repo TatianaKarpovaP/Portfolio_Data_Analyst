@@ -15,10 +15,9 @@ Here you may find my visualization for othe case of Credit Risk. I conducted an 
 1. [Visualization dashboard using Tableau](#title1)
 2. [Key findings](#title2)
 3. [Management recommendations](#title3)
-4. [Concluding remarks](#title4)
 
 ## <a id="title1">Visualization dashboard using Tableau</a>
-Data contains the following attribtes:
+Data contains 32581 objects and 12 attribtes which are the following:
 1) Age
 2) Annual Income
 3) Home ownership (Rent, mortgage, other)
