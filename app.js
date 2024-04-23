@@ -2,7 +2,7 @@ console.log('Is this working?');
 
 let viz;
 
-const url = "https://public.tableau.com/views/Lloyds_17120130643130/CreditRiskData?:language=en-US&:sid=&:display_count=n&:origin=viz_share_link";
+const url = "https://public.tableau.com/views/Lloyds_17120130643130/CreditRiskData";
 
 const vizContainer = document.getElementById('vizContainer');
 const options = {
