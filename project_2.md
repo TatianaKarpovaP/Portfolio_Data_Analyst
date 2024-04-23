@@ -11,11 +11,10 @@
 
 <body>
 
-  <h1>Project "Credit risk visualisation"</h1>
+  <h1>Project ‘Credit risk visualisation’</h1>
 
     <button id = "exportPDF">Generate PDF</button>
     <button id = "exportImage">Generate Image</button>
-
 
     <div id="vizContainer"></div>
 
