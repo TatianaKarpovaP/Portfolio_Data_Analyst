@@ -10,10 +10,12 @@ Here you may find my visualization for othe case of Credit Risk. I conducted an 
 
 
 # Content
-1. [Visualization dashboard](#title1)
+1. [Visualization dashboard using Tableau](#title1)
 2. [Key findings](#title2)
 3. [Management recommendations](#title3)
 4. [Concluding remarks](#title4)
+
+## <a id="title1">Visualization dashboard using Tableau</a>
 
 <html>
 <head>
@@ -66,5 +68,3 @@ These recommendations may reduce the percentage of non-repayment loans and incre
 
 ######  *Thank you for your attention. I am available to answer any questions or provide suggestions*
 
-
-</html>
