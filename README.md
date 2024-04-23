@@ -8,7 +8,6 @@
   <a href="https://TatianaKarpovaP.github.io/Portfolio_Data_Analyst/CV_Tatiana_Karpova_Data_and_Business_Analyst.pdf" style="display:inline-block;padding:10px 20px;background-color:#007bff;color:#fff;text-decoration:none;border-radius:5px;">Let's get know each other better - My CV</a>
 
   <a href="https://tatianakarpovap.github.io/Portfolio_Data_Analyst/project_1.html" style="display:inline-block;padding:10px 20px;background-color:#28a745;color:#fff;text-decoration:none;border-radius:5px;">Project #1. Credit risk score (Python) </a>
-</div>
 
   <a href="https://tatianakarpovap.github.io/Portfolio_Data_Analyst/project_2.html" style="display:inline-block;padding:10px 20px;background-color:#28a745;color:#fff;text-decoration:none;border-radius:5px;">Project #2. Credit risk Visualization (Tableau) </a>
 </div>
