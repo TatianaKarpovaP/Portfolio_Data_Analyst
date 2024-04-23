@@ -6,6 +6,8 @@
 # Project 'Credit risk visualization'
 ###### *This project is my intellectual property. When quoting, please indicate the original source*
 
+#### Please note that if the dashboard does not display correctly, you can follow the original Tableau website. To do so, please click the "View on Tableau Public" button at the bottom of the dashboard.
+
 Here you may find my visualization for othe case of Credit Risk. I conducted an analysis of an open database from The Kaggle.com.  The data source is [here](https://www.kaggle.com/datasets/laotse/credit-risk-dataset/data).
 
 
@@ -16,6 +18,21 @@ Here you may find my visualization for othe case of Credit Risk. I conducted an 
 4. [Concluding remarks](#title4)
 
 ## <a id="title1">Visualization dashboard using Tableau</a>
+Data contains the following attribtes:
+1) Age
+2) Annual Income
+3) Home ownership (Rent, mortgage, other)
+4) Employment length (in years)
+5) Loan intent (Personal, edication, medical, Venture, home improvement, debt consolidation)
+6) Loan grade (A, B, C, D, E, F, G)
+7) Loan amount
+8) Interest rate
+9) Loan status (non default/default)
+10) Percent income (share  debt in income, %)
+11) Historical default (was client non default/default before)
+12) Credit history length (in years)
+
+Before working with the data it was processed and outliers are clean. In particular samples with age outliers were expelled. 
 
 <html>
 <head>
@@ -39,32 +56,23 @@ Here you may find my visualization for othe case of Credit Risk. I conducted an 
 </html>
   
 ## <a id="title2">Key findings</a>
-1) Amount of default credits is quite large;
-2) Risky Grades: D, E, F, G
-3) Risky intent:
-   A, B - Debt consolidation, Education, Medical and Personal
-   C, D - Home impov., Medical, Debt consolidation
-4) Less risky grades: 
+1) Amount of default credits is quite large, I would say more than everage what requires immediate actions!;
+2) Risky Grades are: D, E, F, G
+3) Less risky grades are: 
    A, B - Education, Venture, Medical and Personal
    C, D - Education, Personal, and Venture
-5) Grades groups are highly diverse;   
+4) Risky intent are:
+   A, B - Debt consolidation, Education, Medical and Personal
+   C, D - Home impov., Medical, Debt consolidation
+5) Grades groups are highly diverse;
+6) Standard deviation for lots of factors are equal;
 
 ## <a id="title3">Management recommendations</a>  
-1) Develop credits programs for the profitable sectors;
-2) Develop extra servises/programms for risky sectors (like medical or finance insurance, refinancing debts with a lower interest rate)
-3) Reconsider the approach to assigning a grade;
-
-## <a id="title4">Concluding remarks</a>
-
-After the analysis, the main findings can be practically applied in the Artificial Bank operation. In particular, the distinctive characteristics of reliable and unreliable groups, as well as the main factors influencing group belonging. 
-- Firstly, to use the proposed model in the web application on daily basis for decision making. Just entering the client's basic data, such as age, education level, work experience, residence at the same address, annual income, debt-to-income ratio, credit card and other debts, and the probability of being unreliable is calculated. 
-- Secondly, to design its own credit scores, for example, the “ABC” system, dividing customers into three groups depended on the probability of being unreliable. Group "A" includes the most reliable clients (0.45–0), "C" - the least reliable (1–0.56), and "B" (0.55–0.46) is considered a “Gray zone” where changes are required to improve the assessment, for example, an find new income sources or repayment of existing debts.
-- Thirdly, to supplement the database with new loan parameters to improve the model such as term, interest rate, and amount. It may extend the model. 
-
-To improve the model, I recommend a more in-depth analysis of the influence of the debt structure, the income of all members of the household, and household composition. Additionally, as a new factor, I would like to consider the impact of a credit terms on the final decision-making process. This could be assisted by statistics on the following factors: total amount, duration, purpose, and the percentage of the requested credit. 
+1) Develop credits programs for the profitable sectors. For example, to increase the availability of loans to students for education by providing credit holidays);
+2) Develop extra servises/programms for risky sectors. For example, in cooperation with medical insurance organizations, offer a low interest rate for loans for medical purposes; Or offer refinancing debts with a lower interest rate)
+3) Reconsider the approach to assigning a grade. The 7 existing grades are divided uneven. There are clustering methods which are way more effective. 
 
 These recommendations may reduce the percentage of non-repayment loans and increase the bank's assets turnover, making it more financial stable.
-
 
 ######  *Thank you for your attention. I am available to answer any questions or provide suggestions*
 
