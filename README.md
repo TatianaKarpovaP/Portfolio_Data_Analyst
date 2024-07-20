@@ -12,6 +12,11 @@
   
 
   <a href="https://tatianakarpovap.github.io/Portfolio_Data_Analyst/project_2.html" style="display:block;padding:10px 20px;background-color:#28a745;color:#fff;text-decoration:none;border-radius:5px; margin: 10px auto;">Project #2. Credit risk Visualization (Tableau) </a>
+
+
+   <a href="https://tatianakarpovap.github.io/Portfolio_Data_Analyst/project_3.html" style="display:block;padding:10px 20px;background-color:#28a745;color:#fff;text-decoration:none;border-radius:5px; margin: 10px auto;">Project #3. Sales Visualization (Tableau) </a>
+
+    
 </div>
 
 Contact me <a href="mailto:tatianakarpova@myyahoo.com">tatianakarpova@myyahoo.com</a>
