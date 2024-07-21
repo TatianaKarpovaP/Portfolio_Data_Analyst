@@ -54,7 +54,7 @@ Before working with the data it was processed and outliers are clean.
 
 <body>
 
-    <div id="vizContainer"></div>
+    <div id="vizContainer3"></div>
 
     <script src="./app3.js"></script>
 
