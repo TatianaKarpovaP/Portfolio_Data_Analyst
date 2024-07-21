@@ -8,8 +8,8 @@ const url = "https://public.tableau.com/views/Lloyds_17120130643130/Dashboard1";
 const vizContainer3 = document.getElementById('vizContainer3');
 const options = {
     hideTabs: true,
-    height: 900,
-    width: 1100,
+    height: 1000,
+    width: 1200,
     onFirstInteraction: function() {
         workbook = viz.getWorkbook();
         activeSheet = workbook.getActiveSheet();
