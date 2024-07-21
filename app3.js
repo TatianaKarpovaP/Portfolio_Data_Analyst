@@ -5,7 +5,7 @@ let viz;
 const url = "https://public.tableau.com/views/Lloyds_17120130643130/Dashboard1";
 
 
-const vizContainer = document.getElementById('vizContainer');
+const vizContainer3 = document.getElementById('vizContainer3');
 const options = {
     hideTabs: true,
     height: 900,
@@ -20,7 +20,7 @@ const options = {
 //create a function to generate the viz element
 function initViz() {
     console.log('Executing the initViz function!');
-    viz = new tableau.Viz(vizContainer, url, options);
+    viz = new tableau.Viz(vizContainer3, url, options);
 }
 
 // run the initViz function when the page loads
