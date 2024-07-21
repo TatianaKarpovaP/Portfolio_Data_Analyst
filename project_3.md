@@ -16,7 +16,7 @@ Here you may find my visualization for Sales. I conducted an analysis of an open
 3. [Management recommendations](#title3)
 
 ## <a id="title1">Visualization dashboard using Tableau</a>
-Data contains 32581 objects and 12 attribtes which are the following:
+Data contains 9994 objects and 21 attribtes which are the following:
 1. Row ID => Unique ID for each row.
 2. Order ID => Unique Order ID for each Customer.
 3. Order Date => Order Date of the product.
