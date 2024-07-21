@@ -78,7 +78,7 @@ Before working with the data it was processed and outliers are clean.
 5. 
 6. 
 
-These recommendations may reduce the percentage of non-repayment loans and increase the bank's assets turnover, making it more financial stable.
+
 
 ######  *Thank you for your attention. I am available to answer any questions or provide suggestions*
 
