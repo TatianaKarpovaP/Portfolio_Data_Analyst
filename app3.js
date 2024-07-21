@@ -2,7 +2,7 @@ console.log('Is this working?');
 
 let viz3;
 
-const url3 = "https://public.tableau.com/views/Lloyds_17120130643130/Dashboard1";
+const url3 = "https://public.tableau.com/views/Dashboard_17214955136730/Dashboard1";
 
 
 const vizContainer3 = document.getElementById('vizContainer3');
