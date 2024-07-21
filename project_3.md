@@ -61,23 +61,22 @@ Before working with the data it was processed and outliers are clean.
 </body>
 
 </html>
+
   
 ## <a id="title2">Key findings</a>
-1. 
-2. 
-3. 
-4. 
-5. 
-6. 
+1. Total sales were $ 2 297 201, and total profit was $ 286 397. There has been a positive trend in sales growth since 2014. The average sales level has also shown an increase, indicating steady business growth.
+2. The largest profits were recorded in New York ($ 62 037) and Los Angeles ($ 30 441), while a loss was recorded in Chicago ($ -6 655)
+3. The "Consumer" segment brought the largest profit $ - 134 120, followed by "Corporate" (corporate clients) $ - 91 980. The least profit was brought by the "Home Office" segment $ - 60 300.
+4. The most profitable subcategories were "Copiers", "Phones", and "Accessories". The least profitable or unprofitable subcategories included "Tables", "Bookcases", and "Supplies".
+
 
 ## <a id="title3">Management recommendations</a>  
-1. 
-2. 
-3. 
-4. 
-5. 
-6. 
-
+1. Continue to focus on growing sales and profits, especially in the "Consumer" and "Corporate" segments.
+2. Explore opportunities to increase sales and profitability in the "Copiers", "Phones", and "Accessories" product categories.
+3. Consider strategies to reduce costs and increase efficiency in the "Tables", "Bookcases", and "Supplies" categories. Strengthening marketing and sales efforts in profitable cities: focus on markets such as New York and Los Angeles, where sales and profits are highest. And improving performance in loss-making cities: to analyze the causes of losses in Chicago and develop a strategy to improve sales and profits in this region. 
+4. Develop targeted marketing campaigns and special offers for the "Consumer" segment that generates the most profit. 
+5. Continue to promote and improve profitable subcategories such as "Copiers", "Phones" and "Accessories". Review the assortment and possibly reduce or change the strategy for unprofitable subcategories such as "Tables", "Bookcases" and "Supplies".
+6. Conduct a detailed analysis of production and marketing costs for unprofitable product categories and find ways to reduce costs or increase the value of these products.
 
 
 ######  *Thank you for your attention. I am available to answer any questions or provide suggestions*
