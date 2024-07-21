@@ -79,5 +79,7 @@ Before working with the data it was processed and outliers are clean.
 6. Conduct a detailed analysis of production and marketing costs for unprofitable product categories and find ways to reduce costs or increase the value of these products.
 
 
+These recommendations will help to strengthen marketing efforts in profitable regions, improve performance in less profitable areas, focus on high-value customer segments, and optimize the product portfolio.
+
 ######  *Thank you for your attention. I am available to answer any questions or provide suggestions*
 
