@@ -5,7 +5,7 @@
 </div>
 
 <div align="center">
-  <a href="https://github.com/TatianaKarpovaP/Portfolio_Data_Analyst/blob/main/Figures/CV_Tatiana_Karpova_Data_Analyst_.pdf" style="display:block;padding:10px 20px;background-color:#007bff;color:#fff;text-decoration:none;border-radius:5px; margin: 10px auto;">Let's get know each other better - My CV</a>
+  <a href="https://github.com/TatianaKarpovaP/Portfolio_Data_Analyst/blob/main/Figures/CV_Tatiana_Karpova_Data_Analyst_.pdf" style="display:block;padding:10px 20px;background-color:#007bff;color:#fff;text-decoration:none;border-radius:5px; margin: 10px auto;">Let's get to know each other better - My CV</a>
   
 
   <a href="https://tatianakarpovap.github.io/Portfolio_Data_Analyst/project_1.html" style="display:block;padding:10px 20px;background-color:#28a745;color:#fff;text-decoration:none;border-radius:5px; margin: 10px auto;">Project #1. Credit risk score (Python) </a>
